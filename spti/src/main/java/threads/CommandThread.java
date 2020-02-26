@@ -13,12 +13,23 @@ public class CommandThread extends Thread{
 	@Override
 	public void run() {
 		
-		try {
-			Runtime.getRuntime().exec(comando);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		ProcessBuilder processBuilder = new ProcessBuilder();
+		 processBuilder.command("bash", "-c", comando);
+			
+			try {
+				Process process = processBuilder.start();			
+				
+				process.getInputStream();
+				
+				process.waitFor();
+				
+
+			} catch (IOException e) {
+				e.printStackTrace();
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} 
 	}
 
 }
